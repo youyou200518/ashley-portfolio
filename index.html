@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="梁顺顺 Ashley Liang，高级产品经理与 AI 产品实践者，13 年互联网产品经验。">
+  <title>梁顺顺 Ashley Liang｜高级产品经理</title>
+  <style>
+    :root {
+      --paper: #f4f1ea;
+      --paper-2: #ebe6dc;
+      --ink: #171815;
+      --muted: #686960;
+      --line: #c9c2b6;
+      --accent: #a6402d;
+      --white: #fffdf8;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .shell { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+    .serif { font-family: "Songti SC", "STSong", Georgia, serif; }
+    .eyebrow {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .eyebrow span { color: var(--accent); }
+    .rule { border-top: 1px solid var(--line); }
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(23, 24, 21, .14);
+      background: rgba(244, 241, 234, .94);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      font-family: Georgia, "Songti SC", serif;
+      font-size: 20px;
+    }
+    .brand small {
+      margin-left: 8px;
+      color: var(--muted);
+      font-family: inherit;
+      font-style: italic;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; }
+    .nav-links a { border-bottom: 1px solid transparent; }
+    .nav-links a:hover, .nav-links a:focus-visible,
+    .nav-links a.is-active {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .nav-cta {
+      padding: 9px 16px;
+      color: var(--white);
+      background: var(--ink);
+    }
+    .nav-cta.is-active {
+      color: #fffdf8 !important;
+      background: var(--ink);
+      border-color: var(--ink);
+      box-shadow: inset 0 -3px 0 var(--accent);
+    }
+
+    .hero {
+      min-height: calc(100dvh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(320px, .7fr);
+      gap: 72px;
+      align-items: center;
+      padding-block: 72px;
+    }
+    .hero h1 {
+      max-width: 900px;
+      margin: 28px 0 32px;
+      font-size: clamp(56px, 6.6vw, 96px);
+      font-weight: 400;
+      line-height: .98;
+    }
+    .hero h1 em { color: var(--accent); font-weight: 400; }
+    .hero-copy {
+      max-width: 760px;
+      margin-bottom: 40px;
+      color: #34352f;
+      font-size: clamp(18px, 1.5vw, 22px);
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border: 1px solid var(--ink);
+      font-size: 14px;
+    }
+    .button.primary { color: var(--white); background: var(--ink); }
+    .button:hover, .button:focus-visible { color: var(--white); background: var(--accent); border-color: var(--accent); }
+    .hero-aside { border-top: 1px solid var(--ink); }
+    .portrait {
+      position: relative;
+      margin: 0 0 18px;
+      overflow: hidden;
+      background: var(--paper-2);
+    }
+    .portrait img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: saturate(.82) contrast(1.02);
+    }
+    .portrait figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 12px;
+      color: var(--white);
+      background: rgba(23, 24, 21, .82);
+      font-size: 11px;
+    }
+    .metric {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .metric-index { color: var(--accent); font: italic 18px Georgia, serif; }
+    .metric-value { margin: 0; font: 400 34px/1.15 Georgia, "Songti SC", serif; }
+    .metric-label { margin-top: 5px; color: var(--muted); font-size: 13px; }
+
+    section {
+      padding-block: 112px;
+      scroll-margin-top: 72px;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .section-head h2 {
+      max-width: 780px;
+      margin-bottom: 18px;
+      font-size: clamp(44px, 5vw, 78px);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+    .section-intro { max-width: 680px; color: var(--muted); font-size: 18px; }
+
+    .projects { border-top: 1px solid var(--ink); }
+    .project {
+      display: grid;
+      grid-template-columns: 90px minmax(0, .85fr) minmax(360px, 1.15fr);
+      gap: 36px;
+      padding: 44px 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+    .project-no { color: var(--accent); font: italic 22px Georgia, serif; }
+    .project h3 { margin-bottom: 12px; font-size: clamp(27px, 3vw, 40px); font-weight: 500; line-height: 1.25; }
+    .project-meta { color: var(--muted); font-size: 13px; }
+    .project-story { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .project-story h4 {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .project-story p { margin-bottom: 18px; }
+    .result {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-family: Georgia, "Songti SC", serif;
+      font-size: 22px;
+      line-height: 1.55;
+    }
+    .result strong { color: var(--accent); font-weight: 500; }
+    .project-featured { align-items: center; }
+    .project-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .project-visual figure { margin: 0; padding: 16px; background: var(--white); border: 1px solid var(--line); }
+    .project-visual img { aspect-ratio: 1; width: 100%; object-fit: contain; }
+    .project-visual figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; }
+
+    .capabilities { background: var(--ink); color: var(--white); }
+    .capabilities .eyebrow, .capabilities .section-intro { color: #a8a89e; }
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid #4a4b45;
+      border-left: 1px solid #4a4b45;
+    }
+    .cap {
+      min-height: 280px;
+      padding: 36px;
+      border-right: 1px solid #4a4b45;
+      border-bottom: 1px solid #4a4b45;
+    }
+    .cap-no { color: #c46a56; font: italic 18px Georgia, serif; }
+    .cap h3 { margin: 36px 0 16px; font-size: 28px; font-weight: 500; }
+    .cap p { max-width: 480px; color: #b9b9af; }
+
+    .career-list { border-top: 1px solid var(--ink); }
+    .career-item {
+      display: grid;
+      grid-template-columns: 180px minmax(220px, .65fr) minmax(0, 1fr);
+      gap: 36px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .career-time { color: var(--accent); font: italic 17px Georgia, serif; }
+    .career-role h3 { margin-bottom: 5px; font-size: 22px; }
+    .career-role p, .career-desc { margin-bottom: 0; color: var(--muted); }
+
+    .contact {
+      color: var(--white);
+      background: var(--accent);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr);
+      gap: 80px;
+      align-items: end;
+    }
+    .contact h2 { margin: 24px 0 32px; font-size: clamp(58px, 8vw, 112px); font-weight: 400; line-height: .95; }
+    .contact-copy { max-width: 660px; font-size: 19px; }
+    .contact-list { border-top: 1px solid rgba(255,255,255,.55); }
+    .contact-row { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.35); }
+    .contact-row small { display: block; margin-bottom: 4px; color: rgba(255,255,255,.7); }
+    .contact-row a { font-family: Georgia, serif; font-size: 22px; }
+    footer {
+      padding: 26px 0;
+      color: #85867d;
+      background: var(--ink);
+      font-size: 12px;
+    }
+    footer .shell { display: flex; justify-content: space-between; gap: 20px; }
+
+    :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 64px; min-height: auto; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .project { grid-template-columns: 54px 1fr; }
+      .project-story { grid-column: 2; }
+      .career-item { grid-template-columns: 140px 1fr; }
+      .career-desc { grid-column: 2; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(calc(100% - 32px), var(--max)); }
+      .nav { min-height: 62px; }
+      .brand small { display: none; }
+      .hero { padding-block: 54px 72px; }
+      .hero h1 { margin-top: 20px; font-size: clamp(48px, 15vw, 72px); }
+      .portrait img { height: 420px; }
+      section { padding-block: 78px; }
+      .section-head { margin-bottom: 42px; }
+      .project { grid-template-columns: 1fr; gap: 14px; padding: 34px 0 40px; }
+      .project-story { grid-column: 1; grid-template-columns: 1fr; gap: 0; }
+      .result { grid-column: 1; }
+      .project-visual { grid-template-columns: 1fr 1fr; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .cap { min-height: auto; padding: 28px; }
+      .career-item { grid-template-columns: 1fr; gap: 8px; }
+      .career-desc { grid-column: 1; }
+      .contact h2 { font-size: 58px; }
+      .contact-row a { font-size: 18px; overflow-wrap: anywhere; }
+      footer .shell { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="主要导航">
+      <a class="brand" href="#top">Ashley Liang <small>Product Leader</small></a>
+      <div class="nav-links">
+        <a href="#work">代表项目</a>
+        <a href="#capabilities">核心能力</a>
+        <a href="#career">职业经历</a>
+        <a class="nav-cta" href="#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div>
+        <div class="eyebrow"><span>Available for opportunity</span> · Shanghai · 2026</div>
+        <h1 class="serif">把复杂业务，<br>变成<em>可增长</em>的产品</h1>
+        <p class="hero-copy">
+          我是梁顺顺，一名拥有 13 年互联网经验的高级产品经理与 AI 产品实践者。
+          擅长复杂业务产品化、0→1 商业化和跨团队交付，正在寻找 AI 产品经理、Agent 产品经理及产品负责人机会。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">查看代表项目</a>
+          <a class="button" href="梁顺顺个人简历202607.pdf" download>下载完整简历</a>
+          <a class="button" href="mailto:13391207154@163.com">发送邮件</a>
+        </div>
+      </div>
+      <aside class="hero-aside" aria-label="关键职业成果">
+        <figure class="portrait">
+          <img src="ashley-liang.jpg" alt="梁顺顺 Ashley Liang 职业照片">
+          <figcaption><span>梁顺顺 · Ashley Liang</span><span>Shanghai</span></figcaption>
+        </figure>
+        <div class="metric">
+          <div class="metric-index">01</div>
+          <div><p class="metric-value tabular">13 年</p><div class="metric-label">互联网产品与商业化经验</div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-index">02</div>
+          <div><p class="metric-value tabular">150%+</p><div class="metric-label">主播业务年营收增长</div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-index">03</div>
+          <div><p class="metric-value tabular">60%</p><div class="metric-label">AI 辅助降低产研成本</div></div>
+        </div>
+        <div class="metric">
+          <div class="metric-index">04</div>
+          <div><p class="metric-value tabular">5,000+</p><div class="metric-label">视频号单月新增关注</div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="work" class="shell">
+      <div class="section-head">
+        <div class="eyebrow"><span>01</span> · Selected Work</div>
+        <div>
+          <h2 class="serif">代表项目</h2>
+          <p class="section-intro">不罗列功能清单，只展示我如何理解问题、做出判断并推动业务结果。</p>
+        </div>
+      </div>
+
+      <div class="projects">
+        <article class="project project-featured">
+          <div class="project-no">01</div>
+          <div>
+            <h3>AI Agent 驱动的内容变现与疗愈产品实践</h3>
+            <div class="project-meta">2026 · AI PRODUCT · PERSONAL VENTURE</div>
+            <div class="project-visual">
+              <figure>
+                <img src="video-channel-qr.jpg" alt="小岛英语剧场视频号二维码">
+                <figcaption>内容增长实践 · 小岛英语剧场</figcaption>
+              </figure>
+              <figure>
+                <img src="energy-island-qr.jpg" alt="能量小岛小程序码">
+                <figcaption>疗愈产品实践 · 小程序</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="project-story">
+            <div>
+              <h4>挑战</h4>
+              <p>个人创作者难以同时兼顾内容生产、营销增长、产品研发和持续运营。</p>
+            </div>
+            <div>
+              <h4>我的工作</h4>
+              <p>使用 Codex、小云雀、Sider 与 Trae 搭建一体化个人产线，独立完成疗愈小程序的产品、开发、测试与上线。</p>
+            </div>
+            <div class="result">视频号一个月新增关注 <strong>5,000+</strong>；“能量小岛”上线后日活 <strong>100+</strong>。</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-no">02</div>
+          <div>
+            <h3>小荷新知：知识付费 SaaS 平台</h3>
+            <div class="project-meta">2020—2025 · SAAS · CONTENT COMMERCE</div>
+            <div class="project-visual">
+              <figure>
+                <img src="fengtang-reading-qr.jpg" alt="冯唐讲书知识付费小程序码">
+                <figcaption>明星 IP 项目 · 冯唐讲书</figcaption>
+              </figure>
+              <figure>
+                <img src="jinghuaji-qr.jpg" alt="静话集知识付费小程序码">
+                <figcaption>明星 IP 项目 · 静话集</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="project-story">
+            <div>
+              <h4>挑战</h4>
+              <p>不同主播 IP 需要快速上线独立知识店铺，同时满足课程、会员、支付、版权保护和运营配置需求。</p>
+            </div>
+            <div>
+              <h4>我的工作</h4>
+              <p>从 0→1 规划平台架构，以组件化能力实现模块拼装和模板化部署，服务多个明星 IP 项目。</p>
+            </div>
+            <div class="result">小程序上线效率提升 <strong>200%</strong>，推动主播业务年营收增长 <strong>150%+</strong>。</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-no">03</div>
+          <div>
+            <h3>蜻蜓 FM 内容库与开放平台</h3>
+            <div class="project-meta">2020—2025 · CONTENT PLATFORM · CMS</div>
+          </div>
+          <div class="project-story">
+            <div>
+              <h4>挑战</h4>
+              <p>内容底层结构陈旧、SKU 与包装耦合，多合作方选品、分发和营销流程依赖人工协作。</p>
+            </div>
+            <div>
+              <h4>我的工作</h4>
+              <p>重构内容模型，建设 CMS、自动选品与联合运营能力，打通内容生产、包装、分发和消费闭环。</p>
+            </div>
+            <div class="result">平台结构拓展成本降低 <strong>50%</strong>，内容维护效率提升 <strong>40%</strong>，日常选品效率提升 <strong>88%</strong>。</div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-no">04</div>
+          <div>
+            <h3>国际火车票业务 0→1</h3>
+            <div class="project-meta">2015—2018 · CROSS-BORDER · TRANSACTION</div>
+          </div>
+          <div class="project-story">
+            <div>
+              <h4>挑战</h4>
+              <p>跨境供应商接口、库存、出票、物流、客诉和结算链路复杂，依赖大量人工操作。</p>
+            </div>
+            <div>
+              <h4>我的工作</h4>
+              <p>主导 B2C 预订系统、订单后处理、APP 电子票与虚拟库存模型，推动业务从孵化走向成熟。</p>
+            </div>
+            <div class="result">业务上线次日产生订单；APP 电子票能力提升营收 <strong>20%</strong>，广九项目订单量提升约 <strong>283%</strong>。</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities" class="capabilities">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow"><span>02</span> · Capabilities</div>
+          <div>
+            <h2 class="serif">我能解决的问题</h2>
+            <p class="section-intro">能力不是自评百分比，而是在不同业务环境中反复得到验证的工作方式。</p>
+          </div>
+        </div>
+        <div class="cap-grid">
+          <article class="cap"><div class="cap-no">01</div><h3>AI 产品与 Agent 工作流</h3><p>把 AI 嵌入内容生产、营销增长、产品研发和运营链路，验证真实效率与业务价值。</p></article>
+          <article class="cap"><div class="cap-no">02</div><h3>复杂业务产品化</h3><p>梳理多角色、多规则和多系统依赖，抽象成稳定、易用、可扩展的平台能力。</p></article>
+          <article class="cap"><div class="cap-no">03</div><h3>0→1 与商业化</h3><p>从用户洞察、产品策略和最小验证出发，持续推进转化、留存、复购与营收增长。</p></article>
+          <article class="cap"><div class="cap-no">04</div><h3>产品交付与协作</h3><p>连接业务、研发、设计、运营和外部合作方，在复杂约束下保持目标、节奏与结果一致。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="career" class="shell">
+      <div class="section-head">
+        <div class="eyebrow"><span>03</span> · Experience</div>
+        <div>
+          <h2 class="serif">职业经历</h2>
+          <p class="section-intro">从平台型产品到商业化增长，再到 AI 原生交付，我始终专注于同一件事：将复杂业务转化为清晰、高效且可持续创造商业价值的产品系统。</p>
+        </div>
+      </div>
+      <div class="career-list">
+        <div class="career-item">
+          <div class="career-time tabular">2026.01—03</div>
+          <div class="career-role"><h3>产品项目经理</h3><p>桑田智能</p></div>
+          <p class="career-desc">制定商业化策略与产品路线图，AI 辅助两周完成初版上线，降低产研成本 60%。</p>
+        </div>
+        <div class="career-item">
+          <div class="career-time tabular">2020.08—2025.10</div>
+          <div class="career-role"><h3>互联网产品经理</h3><p>蜻蜓 FM</p></div>
+          <p class="career-desc">负责知识付费 SaaS、内容库、播放链路、CMS 与开放平台等核心产品能力。</p>
+        </div>
+        <div class="career-item">
+          <div class="career-time tabular">2018.07—2020.01</div>
+          <div class="career-role"><h3>高级产品经理</h3><p>享换机</p></div>
+          <p class="career-desc">负责产品战略、业务中台、线上业务 2.0、B2B2C 与风控系统，推动续约率提升 30%。</p>
+        </div>
+        <div class="career-item">
+          <div class="career-time tabular">2015.05—2018.06</div>
+          <div class="career-role"><h3>火车票产品经理</h3><p>同程旅行</p></div>
+          <p class="career-desc">独立负责国际火车票业务孵化，建设预订、出票、库存、结算和跨境供应商链路。</p>
+        </div>
+        <div class="career-item">
+          <div class="career-time tabular">2012.08—2015.04</div>
+          <div class="career-role"><h3>互联网产品经理</h3><p>携程 / 铁友</p></div>
+          <p class="career-desc">从内容策划转向产品，负责火车票预订、配送、运营数据和盈利化转型。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="shell contact-grid">
+        <div>
+          <div class="eyebrow">Get in touch · Shanghai</div>
+          <h2 class="serif">一起把复杂问题，<br>做成好产品</h2>
+          <p class="contact-copy">目前正在寻找高级产品经理、AI 产品经理、Agent 产品经理及产品负责人相关全职机会。欢迎通过邮件或电话联系。</p>
+        </div>
+        <div class="contact-list">
+          <div class="contact-row"><small>Email</small><a href="mailto:13391207154@163.com">13391207154@163.com</a></div>
+          <div class="contact-row"><small>Mobile</small><a href="tel:13391207154">133 9120 7154</a></div>
+          <div class="contact-row"><small>Location</small><span>上海 · 可沟通合适机会</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><span>© 2026 梁顺顺 Ashley Liang</span><span>Senior Product Manager · AI Product Practitioner</span></div>
+  </footer>
+  <script>
+    (() => {
+      const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const setActiveSection = (sectionId) => {
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute('href') === `#${sectionId}`;
+          link.classList.toggle('is-active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      let scheduled = false;
+      const updateActiveSection = () => {
+        const headerHeight =
+          document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
+        const readingLine = window.scrollY + headerHeight + window.innerHeight * 0.28;
+        let activeSection = null;
+
+        sections.forEach((section) => {
+          if (section.offsetTop <= readingLine) activeSection = section;
+        });
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+          activeSection = sections[sections.length - 1];
+        }
+
+        if (activeSection) {
+          setActiveSection(activeSection.id);
+        } else {
+          navLinks.forEach((link) => {
+            link.classList.remove('is-active');
+            link.removeAttribute('aria-current');
+          });
+        }
+        scheduled = false;
+      };
+
+      const scheduleUpdate = () => {
+        if (scheduled) return;
+        scheduled = true;
+        window.requestAnimationFrame(updateActiveSection);
+      };
+
+      window.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+      window.addEventListener('hashchange', scheduleUpdate);
+      updateActiveSection();
+    })();
+  </script>
+</body>
+</html>
