@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="梁顺顺 Ashley Liang，高级产品经理与 AI 产品实践者，13 年互联网产品经验。">
   <title>梁顺顺 Ashley Liang｜高级产品经理</title>
-  <link rel="preload" as="image" href="ashley-liang-optimized.jpg" fetchpriority="high">
   <style>
     :root {
       --paper: #f4f1ea;
@@ -83,10 +82,9 @@
       background: var(--ink);
     }
     .nav-cta.is-active {
-      color: #fffdf8 !important;
-      background: var(--ink);
-      border-color: var(--ink);
-      box-shadow: inset 0 -3px 0 var(--accent);
+      color: var(--white);
+      background: var(--accent);
+      border-color: var(--accent);
     }
 
     .hero {
@@ -125,32 +123,6 @@
     .button.primary { color: var(--white); background: var(--ink); }
     .button:hover, .button:focus-visible { color: var(--white); background: var(--accent); border-color: var(--accent); }
     .hero-aside { border-top: 1px solid var(--ink); }
-    .portrait {
-      position: relative;
-      margin: 0 0 18px;
-      overflow: hidden;
-      background: var(--paper-2);
-    }
-    .portrait img {
-      width: 100%;
-      height: 310px;
-      object-fit: cover;
-      object-position: center 20%;
-      filter: saturate(.82) contrast(1.02);
-    }
-    .portrait figcaption {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 12px;
-      color: var(--white);
-      background: rgba(23, 24, 21, .82);
-      font-size: 11px;
-    }
     .metric {
       display: grid;
       grid-template-columns: 48px 1fr;
@@ -220,12 +192,7 @@
       margin-top: 22px;
     }
     .project-visual figure { margin: 0; padding: 16px; background: var(--white); border: 1px solid var(--line); }
-    .project-visual img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-    }
+    .project-visual img { aspect-ratio: 1; width: 100%; object-fit: contain; }
     .project-visual figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; }
 
     .capabilities { background: var(--ink); color: var(--white); }
@@ -299,7 +266,6 @@
       .brand small { display: none; }
       .hero { padding-block: 54px 72px; }
       .hero h1 { margin-top: 20px; font-size: clamp(48px, 15vw, 72px); }
-      .portrait img { height: 420px; }
       section { padding-block: 78px; }
       .section-head { margin-bottom: 42px; }
       .project { grid-template-columns: 1fr; gap: 14px; padding: 34px 0 40px; }
@@ -336,7 +302,7 @@
     <section class="hero shell">
       <div>
         <div class="eyebrow"><span>Available for opportunity</span> · Shanghai · 2026</div>
-        <h1 class="serif">把复杂业务，<br>变成<em>可增长</em>的产品</h1>
+        <h1 class="serif">把复杂业务，<br>变成<em>可增长</em>的产品。</h1>
         <p class="hero-copy">
           我是梁顺顺，一名拥有 13 年互联网经验的高级产品经理与 AI 产品实践者。
           擅长复杂业务产品化、0→1 商业化和跨团队交付，正在寻找 AI 产品经理、Agent 产品经理及产品负责人机会。
@@ -348,10 +314,6 @@
         </div>
       </div>
       <aside class="hero-aside" aria-label="关键职业成果">
-        <figure class="portrait">
-          <img src="ashley-liang-optimized.jpg" width="904" height="1200" fetchpriority="high" decoding="async" alt="梁顺顺 Ashley Liang 职业照片">
-          <figcaption><span>梁顺顺 · Ashley Liang</span><span>Shanghai</span></figcaption>
-        </figure>
         <div class="metric">
           <div class="metric-index">01</div>
           <div><p class="metric-value tabular">13 年</p><div class="metric-label">互联网产品与商业化经验</div></div>
@@ -375,7 +337,7 @@
       <div class="section-head">
         <div class="eyebrow"><span>01</span> · Selected Work</div>
         <div>
-          <h2 class="serif">代表项目</h2>
+          <h2 class="serif">代表项目。</h2>
           <p class="section-intro">不罗列功能清单，只展示我如何理解问题、做出判断并推动业务结果。</p>
         </div>
       </div>
@@ -388,11 +350,11 @@
             <div class="project-meta">2026 · AI PRODUCT · PERSONAL VENTURE</div>
             <div class="project-visual">
               <figure>
-                <img src="video-channel-qr-optimized.jpg" width="462" height="600" loading="lazy" decoding="async" fetchpriority="low" alt="小岛英语剧场视频号二维码">
-                <figcaption>内容增长实践 · 小岛英语剧场</figcaption>
+                <img src="assets/video-channel-qr.jpg" alt="能量小岛视频号二维码">
+                <figcaption>内容增长实践 · 视频号</figcaption>
               </figure>
               <figure>
-                <img src="energy-island-qr.jpg" width="860" height="860" loading="lazy" decoding="async" fetchpriority="low" alt="能量小岛小程序码">
+                <img src="assets/energy-island-qr.jpg" alt="能量小岛小程序码">
                 <figcaption>疗愈产品实践 · 小程序</figcaption>
               </figure>
             </div>
@@ -415,16 +377,6 @@
           <div>
             <h3>小荷新知：知识付费 SaaS 平台</h3>
             <div class="project-meta">2020—2025 · SAAS · CONTENT COMMERCE</div>
-            <div class="project-visual">
-              <figure>
-                <img src="fengtang-reading-qr.jpg" width="357" height="330" loading="lazy" decoding="async" fetchpriority="low" alt="冯唐讲书知识付费小程序码">
-                <figcaption>明星 IP 项目 · 冯唐讲书</figcaption>
-              </figure>
-              <figure>
-                <img src="jinghuaji-qr.jpg" width="339" height="330" loading="lazy" decoding="async" fetchpriority="low" alt="静话集知识付费小程序码">
-                <figcaption>明星 IP 项目 · 静话集</figcaption>
-              </figure>
-            </div>
           </div>
           <div class="project-story">
             <div>
@@ -484,7 +436,7 @@
         <div class="section-head">
           <div class="eyebrow"><span>02</span> · Capabilities</div>
           <div>
-            <h2 class="serif">我能解决的问题</h2>
+            <h2 class="serif">我能解决的问题。</h2>
             <p class="section-intro">能力不是自评百分比，而是在不同业务环境中反复得到验证的工作方式。</p>
           </div>
         </div>
@@ -501,14 +453,14 @@
       <div class="section-head">
         <div class="eyebrow"><span>03</span> · Experience</div>
         <div>
-          <h2 class="serif">职业经历</h2>
-          <p class="section-intro">从平台型产品到商业化增长，再到 AI 原生交付，我始终专注于同一件事：将复杂业务转化为清晰、高效且可持续创造商业价值的产品系统。</p>
+          <h2 class="serif">职业经历。</h2>
+          <p class="section-intro">从交易产品到内容平台，再到 AI 原生交付，我持续做同一件事：让复杂业务更清晰、更高效、更有增长空间。</p>
         </div>
       </div>
       <div class="career-list">
         <div class="career-item">
           <div class="career-time tabular">2026.01—03</div>
-          <div class="career-role"><h3>产品项目经理</h3><p>桑田智能</p></div>
+          <div class="career-role"><h3>产品项目经理</h3><p>轻盈社区</p></div>
           <p class="career-desc">制定商业化策略与产品路线图，AI 辅助两周完成初版上线，降低产研成本 60%。</p>
         </div>
         <div class="career-item">
@@ -538,7 +490,7 @@
       <div class="shell contact-grid">
         <div>
           <div class="eyebrow">Get in touch · Shanghai</div>
-          <h2 class="serif">一起把复杂问题，<br>做成好产品</h2>
+          <h2 class="serif">一起把复杂问题，<br>做成好产品。</h2>
           <p class="contact-copy">目前正在寻找高级产品经理、AI 产品经理、Agent 产品经理及产品负责人相关全职机会。欢迎通过邮件或电话联系。</p>
         </div>
         <div class="contact-list">
