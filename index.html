@@ -220,7 +220,12 @@
       margin-top: 22px;
     }
     .project-visual figure { margin: 0; padding: 16px; background: var(--white); border: 1px solid var(--line); }
-    .project-visual img { aspect-ratio: 1; width: 100%; object-fit: contain; }
+    .project-visual img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
     .project-visual figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; }
 
     .capabilities { background: var(--ink); color: var(--white); }
